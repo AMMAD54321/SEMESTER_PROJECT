@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="285.0" prefWidth="696.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.semester_project.PaneForTransferPage">
+   <children>
+      <Button fx:id="TransfersHub" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#TransfersHub" onMouseEntered="#TransfersHubButtonOnMouseEntered" onMouseExited="#TransfersHubButtonOnMouseExited" prefHeight="84.0" prefWidth="235.0" style="-fx-background-color: #331B50;" text="Transfer Hub" textFill="WHITE">
+         <font>
+            <Font name="Verdana Bold" size="23.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="SearchPlayers" alignment="TOP_LEFT" layoutX="305.0" mnemonicParsing="false" onAction="#SearchPlayers" onMouseEntered="#SearchPlayersButtonOnMouseEntered" onMouseExited="#SearchPlayersButtonOnMouseExited" prefHeight="84.0" prefWidth="235.0" style="-fx-background-color: #331B50;" text="Search Players" textFill="WHITE">
+         <font>
+            <Font name="Verdana Bold" size="23.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="TransfersHistory" alignment="TOP_LEFT" layoutY="101.0" mnemonicParsing="false" onAction="#TransfersHistory" onMouseEntered="#TransfersHistoryButtonOnMouseEntered" onMouseExited="#TransfersHistoryButtonOnMouseExited" prefHeight="84.0" prefWidth="235.0" style="-fx-background-color: #331B50;" text="Transfer History" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="Verdana Bold" size="23.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

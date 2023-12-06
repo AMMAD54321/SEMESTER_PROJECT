@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="473.0" prefWidth="762.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.semester_project.PageForMatchStats">
+   <children>
+      <ImageView fitHeight="473.0" fitWidth="762.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Picture1aa.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="Back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#Back" onMouseEntered="#BackOnMouseEntered" onMouseExited="#BackOnMouseExit" prefHeight="36.0" prefWidth="71.0" style="-fx-background-color: #302E62;" text="Back" textFill="WHITE">
+         <font>
+            <Font name="Verdana Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="305.0" layoutY="18.0" text="Match Stats" textFill="WHITE">
+         <font>
+            <Font name="Verdana Bold" size="23.0" />
+         </font>
+      </Label>
+      <TableView fx:id="matchStatsTable" layoutX="73.0" layoutY="73.0" prefHeight="328.0" prefWidth="616.0">
+        <columns>
+          <TableColumn fx:id="dateColumn" prefWidth="75.0" text="Date" />
+            <TableColumn fx:id="teamColumn" prefWidth="75.0" text="Team" />
+            <TableColumn fx:id="yellowAwayColumn" prefWidth="84.0" text="Away Yellow" />
+            <TableColumn fx:id="yellowHomeColumn" prefWidth="84.0" text="Home Yellow" />
+            <TableColumn fx:id="redAwayColumn" prefWidth="74.0" text="Away Red" />
+            <TableColumn fx:id="redHomeColumn" prefWidth="73.0" text="Home Red" />
+            <TableColumn fx:id="goalsHomeColumn" prefWidth="73.0" text="Home Goals" />
+            <TableColumn fx:id="goalsAwayColumn" prefWidth="76.0" text="Away Goals" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

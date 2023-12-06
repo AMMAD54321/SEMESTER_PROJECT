@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="285.0" prefWidth="696.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.semester_project.PaneForHomePage">
+   <children>
+      <Button fx:id="Standings" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#StandingsButton" onMouseEntered="#StandingsButtonOnMouseEntered" onMouseExited="#StandingsButtonOnMouseExited" prefHeight="84.0" prefWidth="235.0" style="-fx-background-color: #331B50;" text="Standings" textAlignment="JUSTIFY" textFill="WHITE">
+         <font>
+            <Font name="Verdana Bold" size="23.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="PlayerStats" alignment="TOP_LEFT" layoutY="101.0" mnemonicParsing="false" onAction="#PlayerStatsButton" onMouseEntered="#PlayerStatsButtonOnMouseEntered" onMouseExited="#PlayerStatsButtonOnMouseExited" prefHeight="84.0" prefWidth="235.0" style="-fx-background-color: #331B50;" text="Player Stats" textFill="WHITE">
+         <font>
+            <Font name="Verdana Bold" size="23.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="Schedule" alignment="TOP_LEFT" layoutX="305.0" mnemonicParsing="false" onAction="#ScheduleButton" onMouseEntered="#ScheduleButtonOnMouseEntered" onMouseExited="#ScheduleButtonOnMouseExited" prefHeight="84.0" prefWidth="235.0" style="-fx-background-color: #331B50;" text="Schedule" textFill="WHITE">
+         <font>
+            <Font name="Verdana Bold" size="23.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="MatchStats" alignment="TOP_LEFT" layoutX="305.0" layoutY="101.0" mnemonicParsing="false" onAction="#MatchStatsButton" onMouseEntered="#MatchStatsButtonOnMouseEntered" onMouseExited="#MatchStatsButtonOnMouseExited" prefHeight="84.0" prefWidth="235.0" style="-fx-background-color: #331B50;" text="Match Stats" textFill="WHITE">
+         <font>
+            <Font name="Verdana Bold" size="23.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

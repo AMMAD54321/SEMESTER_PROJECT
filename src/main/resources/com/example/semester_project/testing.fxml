@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="pane2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="582.0" style="-fx-background-color: YELLOW;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.semester_project.HomePage">
+   <children>
+      <Label layoutX="157.0" layoutY="64.0" text="Home PAGE">
+         <font>
+            <Font size="50.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

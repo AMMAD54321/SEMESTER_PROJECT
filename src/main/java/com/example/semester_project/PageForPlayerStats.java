@@ -64,7 +64,7 @@ public class PageForPlayerStats implements Initializable {
 
         // Set the new scene to the existing stage
         stage.setScene(scene);
-        stage.setTitle("Semester Project");
+        stage.setTitle("My Semester Project");
     }
 
     @FXML

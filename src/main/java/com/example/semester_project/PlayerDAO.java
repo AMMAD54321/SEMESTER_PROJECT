@@ -22,11 +22,11 @@ public class PlayerDAO {
     private static final String SELECT_PLAYERS_BY_CLUB = "SELECT * FROM player WHERE ClubName = ?";
     private static final String SELECT_PLAYERS_BY_PlayerName= "SELECT * FROM player WHERE PlayerName = ?";
     private static final String Query_For_Squad_Table =
-            "SELECT p.PlayerID, p.PlayerName AS Name, p.ShirtNumber, p.PreferredPosition AS Position, " +
-                    "p.Nationality, s.Date AS ContractDate, p.Age " +
-                    "FROM player p " +
-                    "JOIN sellcontract s ON p.PlayerID = s.PlayerID " +
-                    "WHERE p.ClubName = 'Tottenham Hotspur';";
+            "SELECT p.PlayerID, p.PlayerName AS Name, p.ShirtNumber, p.PreferredPosition AS Position,\n" +
+                    "       p.Nationality, s.Date AS ContractDate, p.Age\n" +
+                    "FROM player p\n" +
+                    "JOIN contracts s ON p.PlayerID = s.PlayerID\n" +
+                    "WHERE p.ClubName = 'Tottenham Hotspur';\n";
 
     public static List<Player> getPlayerAttributes() {
         List<Player> players = new ArrayList<>();

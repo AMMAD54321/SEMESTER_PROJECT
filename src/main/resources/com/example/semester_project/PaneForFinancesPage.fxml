@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="285.0" prefWidth="696.0" style="-fx-background-color: #302E62;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.semester_project.PaneForFinancesPage">
    <children>
-      <PieChart fx:id="Total" layoutX="184.0" prefHeight="285.0" prefWidth="327.0" style="-fx-background-color: #0E3386;" />
+      <PieChart fx:id="Total" layoutX="184.0" prefHeight="285.0" prefWidth="327.0" style="-fx-background-color: #302E62;" />
       <Label layoutX="14.0" layoutY="83.0" text="Current Budget" textFill="#36b04c">
          <font>
             <Font name="System Bold" size="23.0" />

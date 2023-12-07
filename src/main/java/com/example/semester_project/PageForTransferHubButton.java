@@ -1,26 +1,32 @@
 package com.example.semester_project;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.time.LocalDate;
+import java.util.ResourceBundle;
 
-public class PageForTransferHubButton {
+public class PageForTransferHubButton implements Initializable {
+    @FXML
+    private DatePicker SelectContractDate;
+
 
     @FXML
     private Button Back;
 
     @FXML
-    private ComboBox<?> FromTeam;
+    private ComboBox<String> FromTeam;
 
     @FXML
     private Button InConfirm;
@@ -29,10 +35,7 @@ public class PageForTransferHubButton {
     private TextField InMoney;
 
     @FXML
-    private ComboBox<?> MoneyUnitIn;
-
-    @FXML
-    private ComboBox<?> MoneyUnitOut;
+    private TextField InPlayer;
 
     @FXML
     private Button OutConfirm;
@@ -50,17 +53,7 @@ public class PageForTransferHubButton {
     private Label OutPlayerID1;
 
     @FXML
-    private ComboBox<?> OutTransfer;
-
-    @FXML
-    private Label PlayerName;
-
-    @FXML
-    private Label PlayerPostion;
-
-    @FXML
-    private ComboBox<?> ShortList;
-
+    private ComboBox<String> OutTransfer;
     private static final String HOVERED_BUTTON_STYLE =
             "-fx-background-color: #FC2680; -fx-text-fill: #331B50;";
     private static final String IDLE_BUTTON_STYLE =
@@ -92,11 +85,62 @@ Back.setStyle(IDLE_BUTTON_STYLE);
     }
     @FXML
     void InConfirm(ActionEvent event) {
-
+        String in = InPlayer.getText();
+        String mon=InMoney.getText();
+        LocalDate currentDate = LocalDate.now();
+        if(PlayerDAO.isPlayerExistsForOtherClubs(Integer.parseInt(InPlayer.getText()))){
+            System.out.println("Okay Well Done");
+            if(SelectContractDate.getValue().isAfter(currentDate)){
+            if(SelectContractDate.getValue()!=null&&in.matches("\\d+")&&mon.matches("\\d+")&&FromTeam.getValue()!=null && !InPlayer.getText().isEmpty() && !InMoney.getText().isEmpty()){
+                System.out.println("Checked");
+            }
+            }
+            else{
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Fill in all the Options");
+                alert.showAndWait();
+            }
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Player Not Available for Player ID = "+InPlayer.getText());
+            alert.showAndWait();
+        }
     }
 
     @FXML
     void OutConfirm(ActionEvent event) {
+        String out=OutName.getText();
+        String mon=OutMoney.getText();
+        if(PlayerDAO.isPlayerExists(Integer.parseInt(OutName.getText()))){
+            System.out.println("Okay Well Done");
+            if(out.matches("\\d+")&&mon.matches("\\d+")&&OutTransfer.getValue()!=null && !OutName.getText().isEmpty() && !OutMoney.getText().isEmpty()){
+                System.out.println("Checked");
+            }
+            else{
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Fill in all the Options");
+                alert.showAndWait();
+            }
+        }
+        else{
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText("Player Not Available for Player ID = "+OutName.getText());
+        alert.showAndWait();
+        }
+    }
+    @FXML
+    void InPlayer(ActionEvent event) {
 
+    }
+    @FXML
+    void OutPlayer(ActionEvent event) {
+
+    }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ObservableList<String> Clubs= FXCollections.observableArrayList(PlayerDAO.getAllTeamsExceptTottenham());
+        FromTeam.getItems().addAll(Clubs);
+        OutTransfer.getItems().addAll(Clubs);
     }
 }

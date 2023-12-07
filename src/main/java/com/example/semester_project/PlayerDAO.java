@@ -210,4 +210,88 @@ public class PlayerDAO {
         return players;
     }
 
+    public static boolean isPlayerExists(int playerId) {
+        boolean playerExists = false;
+
+        try (
+                // Establish a connection
+                Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+
+                // Create a prepared statement with a parameterized query
+                PreparedStatement preparedStatement = connection.prepareStatement(
+                        "SELECT EXISTS (SELECT 1 FROM player WHERE PlayerID = ? AND ClubName = 'Tottenham Hotspur') AS PlayerExists"
+                )
+        ) {
+            // Set the parameter in the prepared statement
+            preparedStatement.setInt(1, playerId);
+
+            // Execute the query and retrieve the result set
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    // Retrieve the result from the result set
+                    playerExists = resultSet.getBoolean("PlayerExists");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(); // Handle potential SQLExceptions according to your application's needs
+        }
+
+        return playerExists;
+    }
+    public static boolean isPlayerExistsForOtherClubs(int playerId) {
+        boolean playerExists = false;
+
+        try (
+                // Establish a connection
+                Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+
+                // Create a prepared statement with a parameterized query
+                PreparedStatement preparedStatement = connection.prepareStatement(
+                        "SELECT EXISTS (SELECT 1 FROM player WHERE PlayerID = ? AND ClubName != 'Tottenham Hotspur') AS PlayerExists"
+                )
+        ) {
+            // Set the parameter in the prepared statement
+            preparedStatement.setInt(1, playerId);
+
+            // Execute the query and retrieve the result set
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    // Retrieve the result from the result set
+                    playerExists = resultSet.getBoolean("PlayerExists");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(); // Handle potential SQLExceptions according to your application's needs
+        }
+
+        return playerExists;
+    }
+
+
+    public static List<String> getAllTeamsExceptTottenham() {
+        List<String> teams = new ArrayList<>();
+
+        try (
+                // Establish a connection
+                Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+
+                // Create a prepared statement with the SQL query
+                PreparedStatement preparedStatement = connection.prepareStatement(
+                        "SELECT ClubName FROM club WHERE ClubName != 'Tottenham Hotspur'"
+                );
+
+                // Execute the query and retrieve the result set
+                ResultSet resultSet = preparedStatement.executeQuery()
+        ) {
+            // Process the result set
+            while (resultSet.next()) {
+                String clubName = resultSet.getString("ClubName");
+                teams.add(clubName);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(); // Handle potential SQLExceptions according to your application's needs
+        }
+
+        return teams;
+    }
 }
